@@ -1,0 +1,36 @@
+1. What is ​Encapsulation​? Try to list out the benefits of Encapsulation.
+　　主要的目的在保護程式碼中重要的實作細節不被外部知道，以防止外部程式碼直接或不當的存取類別中的屬性(Attribute)及方法(Method)，而導致程式邏輯上的錯誤。
+　　1.程式碼可重複利用。
+　　2.程式碼更容易理解與維護，也加強了程式碼的安全性。
+　　3.information hidding可以將物件使用介面的程式實作部份隱藏起來，不讓使用者看到，同時確保使用者無法任意更改物件內部的重要資料，也可以達到隱藏操作細節的目的。
+2. Try to explain what is ​enum​ and why we use them.
+　　enum可以用來定義常數，管理多個同系列的常數，做為狀態的判斷所使用。enum的好處是能夠讓程式的可讀性更高。
+3. How to use ​enum​ in Kotlin? Attach a sample code that use enum in Kotlin.
+　　enum在Kotlin中是一個class，Kotlin中使用enum的方式是在class前面宣告Enum，跟Java不同，他不僅只有constants，也可以有properties跟methods等等，並用逗號分隔。
+enum class DAYS(val days:Int){
+    MONDAY(1),
+    TUESDAY(2),
+    WEDNESDAY(3),
+    THURSDAY (4),
+    FRIDAY(5),
+    SATURDAY(6),
+    SUNDAY(7);
+}
+
+fun main(){
+    var today = Calendar.DAY_OF_WEEK
+    when(today){
+        DAYS.SUNDAY.days -> println("Today is Sunday")
+        DAYS.MONDAY.days -> println("Today is Monday")
+        DAYS.TUESDAY.days -> println("Today is Tuesday")
+        DAYS.WEDNESDAY.days -> println("Today is Wednesday")
+        DAYS.THURSDAY.days -> println("Today is Thursday")
+        DAYS.FRIDAY.days -> println("Today is Friday")
+        DAYS.SATURDAY.days -> println("Today is Saturday")
+    }
+}
+4. What are the ​differences​ between ​LinearLayout​ and ​RelativeLayout​? Try to explain indetails.
+　　LinearLayout將元素水平或垂直並排排列。LinearLayout不用像RelativeLayout還要設定相對關係等等，在LinearLayout中的所有View都是線性排列的，一個是Vertical，另一個是Horizontal，雖然沒有什麼自由度可言，但幾乎沒有什麼參數需要設定，使用較簡單。
+　　RelativeLayout是一個「相對性」的Layout，在RelativeLayout中的所有View都是有相對關係的，像是View與View之間有相對關係，不然就是View與Layout之間有相對關係，RelativeLayout因為所有View都是相對的，比較容易處理各種解析度的狀況。
+5. Try to explain the benefits of ​ConstraintLayout​. Why you should use it?
+　　ConstraintLayout能讓你的佈局更加扁平化，提升效能，可以減少佈局巢狀，輕鬆完成一個大而複雜的佈局，所有在裡面的View的佈局方式取決於View與View之間的關係和Parent position，因為是相對位置，可以適用各手機大小。ConstraintLayout的所有工作都可以在design的頁面中完成，而不用直接在XML中編輯。
