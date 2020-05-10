@@ -1,0 +1,32 @@
+1. What is ​Polymorphism​? Try to explain in Mandarin.
+polymorphism指為不同資料類型的實體提供統一的介面。電腦程式執行時，相同的訊息可能會送給多個不同的類別之物件，而系統可依據物件所屬類別，引發對應類別的方法，而有不同的行為。簡單來說，所謂多型意指相同的訊息給予不同的物件會引發不同的動作。多型也可定義為「一種將不同的特殊行為和單個泛化記號相關聯的能力」。
+多型可分為變數多型與函式多型。變數多型是指：基本類型的變數可以被賦值基本類型物件，也可以被賦值衍生類型的物件。函式多型是指，相同的函式呼叫介面，傳送給一個物件變數，可以有不同的行為，這視該物件變數所指向的物件類型而定多型是指子類別繼承父類別時，同時改寫父類別的函式或變數，而我們可以宣告一個屬於父類別的變數，去存取子類別中改寫自父類別的函式或變數，這我們稱之為多型 Polymorphism 。
+舉個生活一點的例子，若有一個父類別是動物，那麼有一個子類別鳥繼承自動物這個類別，當我們看到鳥的時侯，可以說牠是一隻鳥，也可以說牠是一隻動物。同樣的東西，卻有不同的表示型態。
+2. Here are the 7 important lifecycle methods of an ​Activity​:Try to explain when are they called during the lifecycle of Activity.
+i.onCreate()，在開啟應用程式時會是第一個進入的流程，並且在應用程式週期中，也只會執行一次。
+ii.onStart()，onStart的工作是負責將activity頁面可視化，並將UI物件初始化以便讓使用者互動。
+iii.onResume()，onResume時期應用程式處於持續執行中，且一直與使用者互動著，直到使用者的焦點移轉，例如：切換到另一個Activity 頁面，或是開啟其它應用程式 (有人來電)，此時就會進入 onPause 暫停的狀態。
+iv.onPause()，可以將你的應用程式做一些特別的動作，例如偵測到有人來電，音樂撥放器就將音樂暫停，如果選擇拒接(在通知列拒接而非開啟電話App 拒接)，就會再回到 onResume 階段；但若接起電話，開啟了電話App或回到主畫面、開啟其他的App，就會進入 onStop 階段。
+v.onStop()，可將手機的資源釋放出來，讓給使用者進行其它操作使用。
+vi.onDestroy()，使用者終止應用程式就會觸發這個流程外，Android作業系統也可能會因為系統資源極度缺乏的情況下，自動終止在onStop或onPause狀態的應用程式。
+vii.onRestart()，使用者做完其它事情再度回到本應用程式時，就會進入onRestart 接續 OnStart →OnResume一系列流程。
+
+3. What is the ​Android Jetpack​?
+Android Jetpack 是一系列軟體元件的組合，透過應用這些元件可以幫助您寫出最佳實踐，避免樣板代碼並簡化複雜任務，讓開發者專注於需要關心的代碼。
+Jetpack 包含在 androidx.* 的套件名稱，沒有和任何平台 API 綁定，它向後相容並可頻繁更新，代表開發者可以隨時使用最新最好的版本。
+Android JetPack由四個部分組成，分別是架構、介面、基礎和行為。
+使用 Jetpack 的好處：1.加速開發，Jetpack元件可單獨或組合使用，同時利用Kotlin 提供的特性來加速開發。2.消除樣板代碼，Jetpack特別用來管理複雜的行為，如後台任務，導航，生命週期。讓您專注在需要關心的部分3.建立高品質，穩固的App，Jetpack 可以減少崩潰，減少記憶體洩漏並提供向後兼容性。
+4. Key concepts in ​Android Development​: Try to research them and explain briefly.
+i.Activity：Activity是App中提供畫面的一個元件。每個Activity都會有專屬視窗，用於顯示畫面。App通常由多個Activity組成，App中的某個Activity會指定為main Activity。使用者第一次啟動應用程式時，會將此Activity向使用者顯示。
+ii.Service：可以在背景中長時間執行操作的應用程式元件，且不提供使用者介面。就算使用者切換至其他應用程式，也會繼續在背景中執行。例如處理網路交易、播放音樂、執行檔案輸入/輸出或與內容供應程式互動，這些都可以從背景執行。
+iii.Content Provider：是Android提供給上層的一個組件，主要用於實現數據訪問的統一管理和數據共享。這裡的數據管理是通過定義統一的訪問接口來完成，如增刪改查。同時，它採用了類似Internet的URL機制，將數據以URI的形式來標識，這樣其他App就可以採用一套標準的URI規範來訪問同一處數據，而不用關心具體的實現細節。
+iv.Broadcast Receiver：又稱作『廣播接收器』，它是一種系統級的全範圍通知，而不是針對單一位置，這樣的好處是，我們不必明確指出需要回應這個廣播的位置，就可以驅動需要回應此廣播的事件，在android中，我們時常需要利用此一機制，讓程式能在任何時候，對於不同的廣播訊息做出正確的反饋。
+v.Notification：Android系統的狀態列(Status Bar)上，允許讓Android App顯示一些訊息在上面，這樣的功能就是通知(Notifications)，而顯示通知的欄位稱為通知欄(Notification Drawer)。Android系統的狀態列顯示與否是由系統控制的，也就是說，即便使用者現在正在使用一個App，也還是有機會可以看得到別的App發出來的通知訊息。
+vi.Runtime Permission：Android 6.0後的新功能，當App在使用到需要某些特定權限的功能時，需要動態向使用者要求授予權限，該功能才能正常使用。
+vii.ANR：全名application not responding，當應用程式無回應時會產生ANR並彈出一個對話框。
+viii.OOM：全名out of memory，因為android系統的app的每個進程或者每個虛擬機有個最大內存限制，如果申請的內存資源超過這個限制，系統就會拋出OOM錯誤。跟整個設備的剩餘內存沒太大關係。比如比較早的android系統的一個虛擬機最多16M內存，當一個app啟動後，虛擬機不停的申請內存資源來裝載圖片，當超過內存上限時就出現OOM。
+ix.Exception：通常指程式運行時所出現的可預料之意外狀況, 基本上都要進行 catch 的動作，然後進行相應處理，如IOException。Exception又可以分成兩類:Checked Exception:又稱受檢例外，通常在原始碼中必須顯式地catch並且處理，這部分算是compile time會檢查的部分。Unchecked Exception: 又稱非受檢例外，就是所謂的RuntimeException，常見的像是NullPointerException, ArrayIndexOutOfBoundsException. 這種類型的例外通常是可以透過撰寫相應程式以避免的邏輯錯誤,可以根據當下的情境來判斷是不是要catch,且在compile time並不會強制要求要catch。
+x.Material Design：官方稱為「實感設計」是Google所公佈一套適用於Android、iOS、網頁、平板或電視等平台的設計規則，它是一個與以前「仿物化」的設計完全不同的概念，iPhone幾年前的圖示、按鈕等介面以仿真為主要目的，像是按鈕有光影、3D、弧度等效果，盡其所能的設計出擬真的圖示與介面。但近年來，設計的概念不再重視如何說服使用者的眼睛，而是以「扁平化」的設計為主流，由iOS後來整個介面的改變可得知。
+5. What is Coroutines​​? Why we use it? Try to explain in Mandarin.
+協同程序，用來管理長時間運行的任務，這些任務可能會阻塞main Thread並導致app沒反應，透過suspend暫停當前coroutine的Thread，並保存進度、resume從暫停的地方繼續執行。
+如果app需要長時間運行，透過coroutines協調，可以讓app運行順暢，並且不會影響到main Thread運行。
